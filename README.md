@@ -86,9 +86,9 @@ Some features I may add in the future include:
 
 Created by **Arnav**
 
-* GitHub: [Your GitHub Profile](https://github.com/YOUR_GITHUB_USERNAME)
-* YouTube: [Your YouTube Channel](https://www.youtube.com/@YOUR_YOUTUBE_HANDLE)
-* Instagram: [Your Instagram Profile](https://www.instagram.com/YOUR_INSTAGRAM_USERNAME/)
+* GitHub: https://github.com/ArnavOG
+* YouTube: https://www.youtube.com/@ArnavoltZ
+* Instagram: https://www.instagram.com/arnavoltz
 
 ## License
 
