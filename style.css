@@ -1,0 +1,444 @@
+/* =========================
+   Base layout
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  background: #0b0d14;
+  color: #e7eaf2;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.game-shell {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #8b95b8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1;
+}
+
+.stats {
+  display: flex;
+  gap: 28px;
+  text-align: right;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stats span {
+  color: #8b95b8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats strong {
+  font-size: 26px;
+}
+
+/* =========================
+   Game card and arena
+========================= */
+
+.game-card {
+  overflow: hidden;
+  border: 1px solid #292e43;
+  border-radius: 24px;
+  background: #141824;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.arena-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 240px;
+  background: #10121c;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   Overlays
+========================= */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(11, 13, 20, 0.82);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.overlay h2 {
+  margin-bottom: 12px;
+  font-size: clamp(30px, 5vw, 52px);
+}
+
+.overlay p:not(.eyebrow) {
+  max-width: 440px;
+  color: #aeb6d0;
+  line-height: 1.6;
+}
+
+.overlay button {
+  margin-top: 12px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #8b5cf6;
+  color: white;
+  font-weight: 800;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.overlay button:hover {
+  background: #a78bfa;
+  transform: translateY(-2px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   Game information
+========================= */
+
+.game-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #181d2b;
+}
+
+.dimension-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 12px #60a5fa;
+}
+
+.hint {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+  margin: 0;
+  color: #8b95b8;
+  font-size: 12px;
+}
+
+footer {
+  padding-top: 18px;
+  color: #737d9e;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =========================
+   Mobile controls
+========================= */
+
+.mobile-controls {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.joystick {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 112px;
+  height: 112px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.joystick-knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.shift-button {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  width: 94px;
+  height: 94px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.85);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.shift-button:active {
+  transform: scale(0.94);
+}
+
+/* =========================
+   Responsive layout
+========================= */
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .stats {
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .arena-wrapper {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+
+  .game-info {
+    padding: 14px;
+  }
+
+  .mobile-controls {
+    display: block;
+  }
+
+  .hint {
+    display: none;
+  }
+
+  .game-card {
+    border-radius: 18px;
+  }
+
+  .overlay {
+    padding: 18px;
+  }
+
+  .overlay h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .joystick {
+    left: 14px;
+    bottom: 14px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .shift-button {
+    right: 14px;
+    bottom: 24px;
+    width: 82px;
+    height: 82px;
+  }
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .game-shell {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* =========================
+   Logo and creator credits
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(139, 92, 246, 0.8);
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+.creator-credits {
+  padding: 22px 12px 4px;
+  color: #737d9e;
+  text-align: center;
+  font-size: 13px;
+}
+
+.creator-credits p {
+  margin: 0 0 12px;
+}
+
+.creator-credits strong {
+  color: #e7eaf2;
+}
+
+.creator-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.creator-links a {
+  color: #a78bfa;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.creator-links a:hover {
+  color: #c4b5fd;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .brand {
+    align-items: flex-start;
+  }
+
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   Pulse Shift brand logo
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 16px;
+
+  border: 1px solid rgba(139, 92, 246, 0.65);
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.2);
+}
+
+/* Mobile sizing */
+@media (max-width: 600px) {
+  .brand {
+    align-items: flex-start;
+  }
+
+  .brand-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+  }
+}

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pulse Shift</title>
+  <link rel="icon" type="image/png" href="assets/ps-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+  <img
+    class="brand-logo"
+    src="/assets/ps-logo.png"
+    alt="Pulse Shift logo"
+  >
+
+  <div>
+    <p class="eyebrow">PULSE SHIFT</p>
+    <h1>Survive the shift.</h1>
+  </div>
+</div>
+      </div>
+
+      <div class="stats">
+        <div>
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>Best</span>
+          <strong id="best">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="game-card">
+      <div class="arena-wrapper">
+        <canvas id="gameCanvas" aria-label="Pulse Shift game arena">
+          Your browser does not support HTML Canvas.
+        </canvas>
+
+        <div class="overlay" id="startScreen">
+          <p class="eyebrow">DIMENSIONAL SURVIVAL</p>
+          <h2>Ready to shift?</h2>
+          <p>Move freely. Switch dimensions. Avoid incoming hazards.</p>
+          <button id="startButton">Start game</button>
+        </div>
+
+        <div class="overlay hidden" id="gameOverScreen">
+          <p class="eyebrow">RUN COMPLETE</p>
+          <h2>Signal lost.</h2>
+          <p>Your score: <strong id="finalScore">0</strong></p>
+          <button id="restartButton">Try again</button>
+        </div>
+
+        <!-- Mobile controls -->
+        <div class="mobile-controls" id="mobileControls">
+          <div class="joystick" id="joystick">
+            <div class="joystick-knob" id="joystickKnob"></div>
+          </div>
+
+          <button
+            class="shift-button"
+            id="mobileShiftButton"
+            aria-label="Switch dimension"
+          >
+            SHIFT
+          </button>
+        </div>
+      </div>
+
+      <div class="game-info">
+        <div class="dimension-status">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="dimensionLabel">PULSE DIMENSION</span>
+        </div>
+
+        <p class="hint">
+          <span>Move: WASD / Arrow keys</span>
+          <span>Shift: Space / Tap</span>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Two dimensions. One chance. Expect the unexpected.</p>
+    </footer>
+
+    <section class="creator-credits" aria-label="Game credits">
+  <p>
+    Created by <strong>Arnav</strong> · Pulse Shift
+  </p>
+
+  <div class="creator-links">
+    <a
+      href="https://github.com/ArnavOG"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+
+    <a
+      href="https://www.youtube.com/@ArnavoltZ"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      YouTube
+    </a>
+
+    <a
+    href="https://www.instagram.com/arnavoltz"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Instagram
+  </a>
+  </div>
+</section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
